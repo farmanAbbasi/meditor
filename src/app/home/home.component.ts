@@ -39,7 +39,7 @@ export class HomeComponent implements OnInit {
         lastname: "Abbasi",
         startdate: "12-1-2021",
         userurl:"https://picsum.photos/100",
-        posturl:"https://picsum.photos/200",
+        posturl:"https://picsum.photos/400",
         postdesc:"my name is farman,my name is farman,my name is farman. my name is farman, my name is farman, my name is farman, my name is farmanmy name is farmanmy name is farmanmy name is farmanmy name is farman",
         likes:1,
         comment:["a","a"]
@@ -50,7 +50,7 @@ export class HomeComponent implements OnInit {
         lastname: "Abbasi2",
         startdate: "13-1-2021",
         userurl:"https://picsum.photos/100",
-        posturl:"https://picsum.photos/200",
+        posturl:"https://picsum.photos/400",
         postdesc:"my name is farman2",
         likes:29,
         comment:[{}]

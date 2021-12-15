@@ -31,6 +31,7 @@ export class CreateComponent implements OnInit {
       IdeaDesc: ['', Validators.required]
     
     })
+    Swal.fire("Success", "Idea created successfully...", "success");
 
   }
 

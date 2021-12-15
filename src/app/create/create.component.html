@@ -1,0 +1,40 @@
+<div class="container-holder">
+        <div class="container">
+            <div class="header" style="background-color: #0bb8d0;">Create Idea</div>
+            <form [formGroup]="messageForm" (ngSubmit)="onSubmit(messageForm.value)">
+                <p style="font-size: small;color: gray;">* Please describe your solution to address the Challenge. We remind you that no confidential information should be disclosed on this site.</p>
+             
+    
+                <label for="ideaDesc" style="width:100%">
+                    Description
+                    <textarea class="form-control" id="ideaDesc" rows="5" cols="5" maxlength="300"
+                    placeholder=" Mention the application, benefit, principle and differentiating factor for your idea. Max 300 chars"
+                        formControlName="IdeaDesc"></textarea>
+    
+                    <div *ngIf="submitted && messageForm.controls.IdeaDesc.errors" class="error">
+                        <div *ngIf="!success && messageForm.controls.IdeaDesc.errors.required">Description is required</div>
+                    </div>
+                </label>
+                <br>
+
+
+                <div>
+                    <input type="file" class="selector" name="file" #inputFile (change)="selectFile($event)" />
+                    <br>
+                </div>
+    
+    
+                <span style="position: relative;">
+                        <img *ngIf="savingIdea==true" style="position: absolute;
+                        height: 24px;
+                        top: -1px;
+                        left: 8px;
+                        width: 23px;"
+                            src="../../assets/loading2.gif">
+                        <input type="submit" value="Submit" style="background-color: #0bb8d0;" class="btn btnMe">
+                        </span>
+    
+
+            </form>
+        </div>
+    </div>

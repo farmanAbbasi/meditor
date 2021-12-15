@@ -1,0 +1,120 @@
+.container{
+   
+}
+
+.user-icon{
+    border-radius:50%;
+    width:60px;
+    height: 60px;
+    padding:15px;
+}
+.user-icon-placeholder{
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    background-color: lightblue;
+    margin:15px;
+}
+
+
+
+
+.posturl {
+    width:400px;
+}
+
+.posturl-placehlder{
+    width:400px;
+    height:400px;
+    
+
+    background: linear-gradient(	  
+      to right,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0) 80%
+    ),
+    #e5f9ff;
+    background-repeat: repeat-y;
+    background-size: 50px 500px;
+    background-position: 0 0;
+    animation: shine 1.4s infinite;	
+
+}
+
+@keyframes shine {	
+    to {
+      background-position: 100% 0, /* move highlight to right */ 0 0;
+    }
+  }
+
+.cards-content{
+    display: flex;
+    justify-content: left;
+    max-width: 400px;
+ 
+    width: auto;
+    margin-bottom: 20px;
+    //box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+
+}
+.postdesc{
+    color: gray;
+    font-style: italic;
+    padding-bottom: 10px;
+    padding-right: 10px;
+}
+
+.postdesc-placeholder{
+    width: 250px;
+    height: 20px;
+    border-radius: 20px;
+    margin: 5px;
+
+    background: linear-gradient(	  
+        to right,
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0) 80%
+      ),
+      lightblue;
+      background-repeat: repeat-y;
+      background-size: 50px 500px;
+      background-position: 0 0;
+      animation: shine 1.4s infinite;	
+}
+
+.username{
+    font-weight: bold;
+    font-size: larger;
+    padding: 10px;
+    align-self: start;
+}
+.username-placeholder{
+    width: 150px;
+    height: 20px;
+    border-radius: 20px;
+    margin:5px;
+
+    background: linear-gradient(	  
+        to right,
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0) 80%
+      ),
+      lightblue;
+      background-repeat: repeat-y;
+      background-size: 50px 500px;
+      background-position: 0 0;
+      animation: shine 1.4s infinite;	
+}
+
+.like-and-comment{
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    color: white;
+    display: flex;
+    width: 100px;
+    justify-content: space-between;
+}

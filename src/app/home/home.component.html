@@ -1,0 +1,48 @@
+<div align="center" class="container">
+        <div *ngIf="!postsLoaded">
+                <div>
+                        <div class="posturl-placehlder"></div>
+                    </div>
+                    <div class="cards-content"> 
+                        <div class="user-icon-placeholder"></div>
+                        <div style="display: flex;flex-direction: column;justify-content: center;">
+                                <div class="username-placeholder"></div>
+                                <div class="postdesc-placeholder"></div>
+                        </div>
+                        
+                    </div>
+                    <div>
+                            <div class="posturl-placehlder"></div>
+                        </div>
+                        <div class="cards-content"> 
+                            <div class="user-icon-placeholder"></div>
+                            <div style="display: flex;flex-direction: column;justify-content: center;">
+                                    <div class="username-placeholder"></div>
+                                    <div class="postdesc-placeholder"></div>
+                            </div>
+                            
+                        </div>
+        </div>
+    <div *ngFor="let post of Posts;let i=index">
+            
+
+        <div *ngIf="postsLoaded">
+                <div style="position: relative;">
+                        <img class="posturl" src="{{post.posturl}}" alt="post.desc">
+                        <div class="like-and-comment">
+                                <i class="far fa-thumbs-up fa-lg"></i>{{post.likes}}
+                                <i class="far fa-comment fa-lg"></i>{{post.comment.length}}
+
+                        </div>
+                    </div>
+                    <div class="cards-content"> 
+                        <img class="user-icon" src="{{post.userurl}}" alt="post.username">
+                        <div style="display: flex;flex-direction: column">
+                                <div class="username">{{post.firstname}} {{post.lastname}}</div>
+                                <div align="left" class="postdesc">{{post.postdesc}}</div>
+                        </div>
+                        
+                    </div>
+        </div>
+    </div>
+</div>  

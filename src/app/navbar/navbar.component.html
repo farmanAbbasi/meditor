@@ -1,0 +1,18 @@
+<div align="center" style="height:40px">
+    <span class="navi">Meditor</span>
+</div>
+<div class="container" (scroll)="onScroll($event)">
+
+<app-home  *ngIf="currentComponent=='home'"></app-home>
+<app-create  *ngIf="currentComponent=='create'"></app-create>
+
+<div class="nav-container" [class.hide-container]="hideNav">
+    <div class="items">
+        <i class="fas fa-house-damage fa-2x" (click)="setComponent('home')"></i>
+    </div>
+    <div class="items">
+            <i class="fas fa-plus-square fa-2x" (click)="setComponent('create')"></i>
+    </div>
+</div>
+
+</div>

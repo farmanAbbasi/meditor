@@ -21,6 +21,7 @@ export interface Post{
 
 export class HomeComponent implements OnInit {
   postsLoaded:boolean=false;
+  showCardtext=false;
   Posts:Post[];
   constructor() { }
 

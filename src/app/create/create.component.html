@@ -1,28 +1,27 @@
 <div class="container-holder">
         <div class="container">
-            <div class="header" style="background-color: #0bb8d0;">Create Idea</div>
-            <form [formGroup]="messageForm" (ngSubmit)="onSubmit(messageForm.value)">
-                <p style="font-size: small;color: gray;">* Please describe your solution to address the Challenge. We remind you that no confidential information should be disclosed on this site.</p>
-             
+            <div class="header" style="background-color: lightblue;padding:20px">Status</div>
+            <form [formGroup]="messageForm" (ngSubmit)="onSubmit(messageForm.value)" style="    padding: 20px;">
     
-                <label for="ideaDesc" style="width:100%">
-                    Description
-                    <textarea class="form-control" id="ideaDesc" rows="5" cols="5" maxlength="300"
-                    placeholder=" Mention the application, benefit, principle and differentiating factor for your idea. Max 300 chars"
+                
+                  
+                    <textarea class="form-control my-textarea" id="ideaDesc" rows="5" cols="5" maxlength="200"
+                    placeholder="Write anything in your mind..."
                         formControlName="IdeaDesc"></textarea>
     
                     <div *ngIf="submitted && messageForm.controls.IdeaDesc.errors" class="error">
-                        <div *ngIf="!success && messageForm.controls.IdeaDesc.errors.required">Description is required</div>
+                        <div *ngIf="!success && messageForm.controls.IdeaDesc.errors.required">Status is required</div>
                     </div>
-                </label>
+               
                 <br>
-
+                <br>
 
                 <div>
                     <input type="file" class="selector" name="file" #inputFile (change)="selectFile($event)" />
                     <br>
                 </div>
-    
+                <br>
+                <br>
     
                 <span style="position: relative;">
                         <img *ngIf="savingIdea==true" style="position: absolute;
@@ -31,7 +30,7 @@
                         left: 8px;
                         width: 23px;"
                             src="../../assets/loading2.gif">
-                        <input type="submit" value="Submit" style="background-color: #0bb8d0;" class="btn btnMe">
+                        <input type="submit" value="Submit" class="btn btnMe">
                         </span>
     
 

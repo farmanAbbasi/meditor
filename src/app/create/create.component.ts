@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import Swal from 'sweetalert2';
+// import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+// import { AngularFireStorage } from '@angular/fire/storage';
+
 
 @Component({
   selector: 'app-create',
@@ -14,9 +16,9 @@ export class CreateComponent implements OnInit {
   messageForm: FormGroup;
   submitted = false;
   success=false;
-  savingIdea=false;
   selectedFiles: File = null;
-  filesDrop: File[] = [];
+
+
 
 
 
@@ -31,7 +33,7 @@ export class CreateComponent implements OnInit {
       IdeaDesc: ['', Validators.required]
     
     })
-    Swal.fire("Success", "Idea created successfully...", "success");
+    //Swal.fire("Success", "Idea created successfully...", "success");
 
   }
 
@@ -43,10 +45,6 @@ export class CreateComponent implements OnInit {
       console.log(this.selectedFiles, " selected file")
     }
   }
-
-
-  
- 
 
 
   onSubmit(value) {

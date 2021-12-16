@@ -62,6 +62,12 @@ export class HomeComponent implements OnInit {
   },1000)
     
   }
+  imgLoaded(){
+    //console.log("img loaded")
+    this.showCardtext=true;
+  }
+
+  
 
 
 }

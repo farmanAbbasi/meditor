@@ -28,14 +28,14 @@
 
         <div *ngIf="postsLoaded">
                 <div style="position: relative; width: 400px;">
-                        <img class="posturl" src="{{post.posturl}}" alt="post.desc">
+                        <img class="posturl" src="{{post.posturl}}" alt="post.desc"  (load)="imgLoaded()">
                         <div class="like-and-comment">
                                 <i class="fas fa-thumbs-up fa-lg"></i>{{post.likes}}
                                 <i class="fas fa-comment fa-lg"></i>{{post.comment.length}}
 
                         </div>
                     </div>
-                    <div class="cards-content"> 
+                    <div *ngIf="showCardtext" class="cards-content"> 
                         <img class="user-icon" src="{{post.userurl}}" alt="post.username">
                         <div style="display: flex;flex-direction: column">
                                 <div class="username">{{post.firstname}} {{post.lastname}}</div>

@@ -1,7 +1,7 @@
-<div class="container-holder">
+ <div class="container-holder">
         <div class="container">
             <div class="header" style="background-color: lightblue;padding:20px">Status</div>
-            <form [formGroup]="messageForm" (ngSubmit)="onSubmit(messageForm.value)" style="    padding: 20px;">
+            <form [formGroup]="messageForm" (ngSubmit)="onSubmit(messageForm.value,imageInput)" style="    padding: 20px;">
     
                 
                   
@@ -17,7 +17,17 @@
                 <br>
 
                 <div>
-                    <input type="file" class="selector" name="file" #inputFile (change)="selectFile($event)" />
+                    <input #imageInput formControlName="file" type="file" class="selector"
+                     name="file" #inputFile (change)="onFileChoose($event)"
+                     accept="image/png, image/gif, image/jpeg" />
+                    <div *ngIf="submitted && messageForm.controls.file.errors" class="error">
+                        <div *ngIf="!success && messageForm.controls.file.errors.required">Image is required</div>
+                    </div>
+                    <div class="uploading" [style.width.%]="percentageUploaded">
+                        <p *ngIf="percentageUploaded == 100" style="font-size: 12px;
+                        color: green;
+                        position: absolute;">Done</p>
+                    </div>
                     <br>
                 </div>
                 <br>
@@ -37,3 +47,30 @@
             </form>
         </div>
     </div>
+<!--      
+    <div class="container">
+        <div class="row" style="margin-top: 5%;">
+            <div class="text-center col-md-12">
+                <input type="file" (change)="fileChangeEvent($event)" />
+            </div>
+        </div>
+        <div class="row" style="margin-top: 5%;">
+            <div class="text-center col-md-8">
+                <h5>Crop Image</h5>
+                <image-cropper 
+                [imageChangedEvent]="imageChangedEvent" 
+                [maintainAspectRatio]="true" 
+                [aspectRatio]="4 / 4"
+                [resizeToWidth]="400" 
+                format="png" 
+                (imageCropped)="imageCropped($event)" 
+                (imageLoaded)="imageLoaded()"
+                (cropperReady)="cropperReady()" 
+                (loadImageFailed)="loadImageFailed()"></image-cropper>
+            </div>
+            <div class="text-center col-md-4">
+                <h5>Preview</h5>
+                <img [src]="croppedImage" />
+            </div>
+        </div>
+    </div> -->

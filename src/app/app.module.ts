@@ -1,18 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http'
+// npm i firebase@6 @angular/fire@^5.2.0 --save
+// as for angular 8 the above version of firebase works
+import { AngularFireModule } from "@angular/fire";
+import {
+  AngularFireStorageModule,
+  AngularFireStorageReference,
+  AngularFireUploadTask,
+  StorageBucket
+} from "@angular/fire/storage";
 
-// npm i firebase angularfire2 --save
-// import { AngularFireModule } from '@angular/fire';
-// import { AngularFirestoreModule } from '@angular/fire/firestore';
-// import { AngularFireAuthModule } from '@angular/fire/auth';
-// import { AngularFireModule } from "@angular/fire";
-// import {
-//   AngularFireStorageModule,
-//   AngularFireStorageReference,
-//   AngularFireUploadTask,
-//   StorageBucket
-// } from "@angular/fire/storage";
+import { ImageCropperModule } from 'ngx-image-cropper';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,14 +22,15 @@ import { NavbarComponent } from './navbar/navbar.component';
 
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyBXhX2f8X6hF9fBE3gAQRpm3DRX8_DUHW0",
-  authDomain: "movie-app-4ec6c.firebaseapp.com",
-  databaseURL: "https://movie-app-4ec6c.firebaseio.com",
-  projectId: "movie-app-4ec6c",
-  storageBucket: "movie-app-4ec6c.appspot.com",
-  messagingSenderId: "181969656255",
-  appId: "1:181969656255:web:cc8c4d75662ad5dff7290a"
+  apiKey: "AIzaSyDdpgwQYIZnRrPisAaQ7Ch-1LGfWB6pYas",
+  authDomain: "fire-blogs-app.firebaseapp.com",
+  databaseURL: "https://fire-blogs-app.firebaseio.com",
+  projectId: "fire-blogs-app",
+  storageBucket: "fire-blogs-app.appspot.com",
+  messagingSenderId: "107624863648",
+  appId: "1:107624863648:web:50371d48939135167a36c5"
 };
+
 
 @NgModule({
   declarations: [
@@ -42,16 +43,16 @@ export const firebaseConfig = {
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
     ReactiveFormsModule,
-    // AngularFireModule.initializeApp(firebaseConfig),
-    // AngularFirestoreModule,
-    // AngularFireAuthModule
-    // AngularFireStorageModule,
-    // AngularFireModule.initializeApp(firebaseConfig, "cloud")
+    AngularFireStorageModule,
+    AngularFireModule.initializeApp(firebaseConfig, "cloud"),
+    ImageCropperModule
+    
     
   ],
   providers: [ 
-    // { provide: StorageBucket, useValue: "movie-app-4ec6c.appspot.com" }
+    { provide: StorageBucket, useValue: "fire-blogs-app.appspot.com" }
   ],
   bootstrap: [AppComponent]
 })

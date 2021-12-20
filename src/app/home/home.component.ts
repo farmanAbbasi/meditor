@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GlobalsService } from '../globals.service';
 
 export interface Post{
   id: number,
@@ -22,8 +23,8 @@ export interface Post{
 export class HomeComponent implements OnInit {
   postsLoaded:boolean=false;
   showCardtext=false;
-  Posts:Post[];
-  constructor() { }
+  Posts=[];
+  constructor(public globals: GlobalsService) { }
 
   ngOnInit() {
   
@@ -32,35 +33,27 @@ export class HomeComponent implements OnInit {
     
   }
 
-  getPosts(){
-    this.Posts=[
-      {id: 1,
-        username: "farman@gmail.com",
-        firstname: "Farman",
-        lastname: "Abbasi",
-        startdate: "12-1-2021",
-        userurl:"https://picsum.photos/100",
-        posturl:"https://picsum.photos/400",
-        postdesc:"my name is farman,my name is farman,my name is farman. my name is farman, my name is farman, my name is farman, my name is farmanmy name is farmanmy name is farmanmy name is farmanmy name is farman",
-        likes:1,
-        comment:["a","a"]
-      },
-      {id: 2,
-        username: "farman2@gmail.com",
-        firstname: "Aarman2",
-        lastname: "Abbasi2",
-        startdate: "13-1-2021",
-        userurl:"https://picsum.photos/100",
-        posturl:"https://picsum.photos/400",
-        postdesc:"my name is farman2",
-        likes:29,
-        comment:[{}]
-      }
-    ]
+  async getPosts(){
+    // this.Posts=[
+    //   {id: 1,
+    //     username: "farman@gmail.com",
+    //     firstname: "Farman",
+    //     lastname: "Abbasi",
+    //     startdate: "12-1-2021",
+    //     userurl:"https://picsum.photos/100",
+    //     posturl:"https://firebasestorage.googleapis.com/v0/b/fire-blogs-app.appspot.com/o/RoomsImages%2F1639668683880?alt=media&token=c82c3185-369a-4b86-8c39-012bd77e9496",
+    //     postdesc:"my name is farman,my name is farman,my name is farman. my name is farman, my name is farman, my name is farman, my name is farmanmy name is farmanmy name is farmanmy name is farmanmy name is farman",
+    //     likes:1,
+    //     comment:["a","a"]
+    //   },
+    // ]
 
-    setTimeout(()=>{
-      this.postsLoaded=true
-  },1000)
+ 
+
+  let r:any=await this.globals.getReq(this.globals.BASE_BACKEND_URL+"/posts")
+  console.log(r)
+  this.Posts=r
+  this.postsLoaded=true;
     
   }
   imgLoaded(){

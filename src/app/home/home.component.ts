@@ -52,13 +52,15 @@ export class HomeComponent implements OnInit {
 
   let r:any=await this.globals.getReq(this.globals.BASE_BACKEND_URL+"/posts")
   console.log(r)
-  this.Posts=r
+  this.Posts=r;
   this.postsLoaded=true;
+  
     
   }
   imgLoaded(){
-    //console.log("img loaded")
+    console.log("img loaded")
     this.showCardtext=true;
+  
   }
 
   
